@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .contenedor {
+            display: flex;
+            flex-direction: row;
+        }
+        .div-top {
+            width: auto;
+            height: 20vh;
+            background-color: aqua;
+            border: solid 5px black;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .div-left {
+            width: 30vw;
+            height: 60vh;
+            background-color: red;
+            border: dashed 5px black;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .div-right {
+            width: 70vw;
+            height: 60vh;
+            background-color: green;
+            border: dotted 5px black;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .div-bottom {
+            width: auto;
+            height: 20vh;
+            background-color: yellow;
+            border: double 6px black;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+    </style>    
+</head>
+<body>
+    <div class="div-top"></div><br>
+    <div class="contenedor">
+        <div class="div-left"></div> 
+        <div class="div-right"></div>
+    </div><br>
+    <div class="div-bottom"></div><br>
+</body>
+</html>
