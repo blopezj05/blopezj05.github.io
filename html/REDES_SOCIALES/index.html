@@ -26,24 +26,35 @@
     <meta name="twitter:image" content="https://raw.githubusercontent.com/erikcn47/erikcn47.github.io/refs/heads/main/src/SMR.jpg">
     <meta name="twitter:url" content="https://erikcn47.github.io/">
     <!-- ---------------- -->
+
+    <script>
+        function cambiarIA(url) {
+            document.getElementById('iframe-ia').src = url;
+        }
+    </script>
 </head>
 <body>
     <header class="header">
         <img src="./img/IA.png" alt="logo" class="logo" style="width: auto; height: 80px;">
         <h1 class="titulo">Inteligencia Artificial</h1>
         <div>
-            <button onclick="window.location.href=''" class="button">GitHub</button>
-            <button onclick="window.location.href=''" class="button">Instagram</button>
-            <button onclick="window.location.href=''" class="button">X</button>
-            <button onclick="window.location.href=''" class="button">Facebook</button>
+            <button onclick="window.location.href='https://github.com/erikcn47'" class="button" target="_blank">GitHub</button>
+            <button onclick="window.location.href='https://x.com/ECorraliza08'" class="button" target="_blank">X</button>
+            <button onclick="window.location.href='https://instagram.com/erik.corraliza'" class="button" target="_blank">Instagram</button>
         </div>
     </header>
-    <aside class="aside">
-        <a>CHATGPT</a><br>
-        <a>GROK</a><br>
-        <a>QWEN</a><br>
-        <a>GEMINI</a>
-    </aside>
+    <div class="div">
+        <aside class="aside">
+            <a href="#" onclick="cambiarIA('https://chatgpt.com/'); return false;">CHATGPT</a><br>
+            <a href="#" onclick="cambiarIA('https://grok.com/'); return false;">GROK</a><br>
+            <a href="#" onclick="cambiarIA('https://chat.qwen.ai/'); return false;">QWEN</a><br>
+            <a href="#" onclick="cambiarIA('https://gemini.google.com/'); return false;">GEMINI</a>
+        </aside>
+        <main>
+            <h2 class="titulo">Diferentes IAs</h2>
+            <iframe id="iframe-ia" src="https://openai.com/" title="IA" class="iframe"></iframe>
+        </main>
+    </div>
     <footer class="footer">
         <p>2025/26 2ºSMR</p>
         <button class="button" type="button" onclick="document.getElementById('hora').innerHTML = Date();">Ver hora y fecha</button>

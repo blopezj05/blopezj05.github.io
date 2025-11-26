@@ -97,3 +97,12 @@ button:hover::before {
     font-family: arial;
     background-color: #f1f1f1;
     }
+.div {
+    display: flex;
+    flex-direction: row;
+}
+.iframe {
+    width: 90vw;
+    height: 96vh;
+    border: 1px solid black;
+}
