@@ -56,7 +56,7 @@
         <input type="color" id="color" name="color"><br><br>
 
         <label for="phone_number" >Número de Teléfono</label>
-        <input type="tel" id="phone_number" name="phone_number" placeholder="+34 123-456-789" pattern="\+[0-9]{1,3}[0-9]{9}" required><br><br>
+        <input type="tel" id="phone_number" name="phone_number" placeholder="+34 123-456-789"  required pattern="[0-9]{9}" maxlength="9"><br><br>
         
         <label for="birthdate">Fecha de Nacimiento</label>
         <input type="date" id="birthdate" name="birthdate"><br><br>
@@ -70,6 +70,16 @@
     <input type="reset" value="Borrar" class="button">
     <button onclick="window.alert('Buenos días')" type="button" class="button">Saludo</button>
     <button onclick="document.write('Buenos días')" type="button" class="button">Saludo con write</button>
+    <button onclick="console.log('Buenos días')" type="button" class="button">Saludo en Consola</button>
     </form><br>
+    <script>
+        const form = document.getElementById('contacto');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            alert('Nombre: ' + nombre);
+        });
+    </script>
 </body>
 </html>
