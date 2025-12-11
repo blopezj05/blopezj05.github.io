@@ -3,103 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" content="Erik">
-    <meta name="Description" content="Ejercicios de 2ºSMR">
-    <meta name="Keywords" content="HTML, CSS, JavaScript, SQL, PHP, jQuery, XML, DOM, Bootstrap, Python">
-    <link rel="shortcut icon" href="./img/SMR.jpg"  type="image/x-icon">
-    <title>2ºSMR</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <title>Mi Portafolio Personal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- ESTILOS CSS (El diseño) --- */
+        :root {
+            --bg-color: #121212;       /* Fondo principal muy oscuro */
+            --card-color: #1e1e1e;     /* Fondo de la tarjeta un poco más claro */
+            --text-color: #ffffff;     /* Color del texto principal */
+            --text-secondary: #aaaaaa; /* Color de texto secundario */
+            --accent-color: #00d8ff;   /* Color de acento (azul claro al pasar el ratón) */
+        }
 
-    <!-- Para WhatsApp y Telegram -->
-    <meta property="og:title" content="Inicio">
-    <meta property="og:description" content="Descubre contenido interesante, recursos útiles y mucho más.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://erikcn47.github.io/">
-    <meta property="og:image" content="https://raw.githubusercontent.com/erikcn47/erikcn47.github.io/refs/heads/main/src/SMR.jpg">
-    <meta property="og:site_name" content="Mi Página Web">
-    <!-- ---------------- -->
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-    <!-- Para X (Twitter) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Inicio">
-    <meta name="twitter:description" content="Descubre contenido interesante, recursos útiles y mucho más.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/erikcn47/erikcn47.github.io/refs/heads/main/src/SMR.jpg">
-    <meta name="twitter:url" content="https://erikcn47.github.io/">
-    <!-- ---------------- -->
+        /* La tarjeta principal que contiene todo */
+        .profile-card {
+            background-color: var(--card-color);
+            padding: 3rem 2rem;
+            border-radius: 20px; /* Bordes redondeados */
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Sombra suave */
+            max-width: 450px;
+            width: 100%;
+        }
+
+        /* Estilo de la imagen de perfil */
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%; /* Esto hace la imagen redonda */
+            object-fit: cover;
+            border: 4px solid #333; /* Borde gris oscuro alrededor de la foto */
+            margin-bottom: 1.5rem;
+        }
+
+        /* Título (Tu Nombre) */
+        h1 {
+            margin: 0.5rem 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        /* La biografía corta */
+        .bio {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* --- Sección de Redes Sociales (Iconos superiores) --- */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem; /* Espacio entre iconos */
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 2rem; /* Tamaño de los iconos */
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Efecto al pasar el ratón por encima de los iconos sociales */
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px); /* Se mueven un poquito hacia arriba */
+        }
+
+        /* --- Sección de Habilidades (Parte inferior) --- */
+        .skills-container {
+            border-top: 1px solid #333; /* Línea separadora tenue */
+            padding-top: 1.5rem;
+        }
+
+        .skills-container h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Si hay muchos, que bajen de línea */
+            gap: 1.5rem;
+            font-size: 2.5rem; /* Tamaño de los iconos de habilidades */
+            color: #555; /* Color base apagado */
+        }
+
+        .skills-icons i {
+            transition: color 0.3s ease;
+        }
+
+        /* Colores específicos al pasar el ratón por las habilidades */
+        .skills-icons i.fa-html5:hover { color: #e34f26; }
+        .skills-icons i.fa-css3-alt:hover { color: #1572b6; }
+        .skills-icons i.fa-js-square:hover { color: #f7df1e; }
+        .skills-icons i.fa-react:hover { color: #61dafb; }
+        .skills-icons i.fa-git-alt:hover { color: #f05032; }
+
+    </style>
 </head>
 <body>
-    <header class="header">
-        <img src="./img/Logo.png" alt="Logo Educarex" class="img">
-        <h1>Ejercicios 2ºSMR</h1>
-    </header>
-    <nav class="nav">
-        <button onclick="window.location.href='./html/DIV/DIV-Erik.html'" class="button">Tablas</button>
-        <button onclick="window.location.href='./html/DIV2/Ejercicios-DIV.html'" class="button">Bolitas</button>
-        <button onclick="window.location.href='./calculadora/index.html'" class="button">Calculadora</button>
-        <button onclick="window.location.href='./html/MAPA/Mapa-De-Uso.html'" class="button">Mapa de Uso</button>
-        <button onclick="window.location.href='./html/GIT/git.html'" class="button">GIT</button>
-        <button onclick="window.location.href='./html/ANCORS/ancors.html'" class="button">Ancors</button>
-        <button onclick="window.location.href='./html/ESTILO/estilo.html'" class="button">Estilo</button>
-        <button onclick="window.location.href='./html/HEAD-COMPLETO/Head-Completo.html'" class="button">Head Completo</button>
-        <button onclick="window.location.href='./html/IFRAME/iframe.html'" class="button">Iframe</button>
-        <button onclick="window.location.href='./html/MIPRIMERAWEB/mi-primera-web.html'" class="button">MiPrimeraWeb</button>
-        <button onclick="window.location.href='./html/MULTIMEDIA/multimedia.html'" class="button">Multimedia</button>
-        <button onclick="window.location.href='./html/POSICIONES/posiciones.html'" class="button">Posiciones</button>
-        <button onclick="window.location.href='./html/REDES_SOCIALES/index.html'" class="button">Inteligencia Artificial</button>
-        <button onclick="window.location.href='./JavaScript/index.html'" class="button">JavaScript</button>
-        <button onclick="window.location.href='./html/FORMULARIO/formulario.html'" class="button">Formulario</button>
-    </nav>                                                                                                                                                                                                                                                                                                                                              
-    <div class="contenedor">
-        <aside class="aside">
-            <h3>Barra Lateral</h3>
-            <a href="https://www.educarex.es/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRx8aFva9uxUL7wTVqSgB8ZiPFEy6yENBBbA&s" alt="Logo Educarex" style="width: auto; height: 40px;"></a><br>
-            <a href="https://rayuela.educarex.es/modulo_acceso/"><img src="https://play-lh.googleusercontent.com/ZD76z5I_0HQXnDOz1nXIYbAkuDdviJG88mHw3PzjW4YnIgm9mK_IvKsxO2Bo0NfGFjU" alt="Logo Rayuela" style="width: auto; height: 40px;"></a><br>
-            <a href="https://www.juntaex.es/"><img src="https://www.sgtex.es/wp-content/uploads/2023/08/Junta-de-Extremadura.png" alt="Logo Junta de Extremadura" style="width: auto; height: 40px;"></a><br>
-            <a href="https://validator.w3.org/"><img src="https://static.wixstatic.com/media/304de0_2b64b7517a98446d8764f4aac0fb0a47~mv2.jpg/v1/fill/w_740,h_447,al_c/304de0_2b64b7517a98446d8764f4aac0fb0a47~mv2.jpg" alt="Logo W3C Validator" style="width: auto; height: 40px;"></a><br>
-            <a href="https://jigsaw.w3.org/css-validator/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrnN8k1ZjQxr5_3jodKUC2GBZM_TKZCOUzCQ&s" alt="Logo W3C CSS Validator" style="width: auto; height: 40px;"></a><br>
-        </aside><br>
-        <main class="main">
-            <h1>Inicio</h1>
-            <details name="grupo">
-                <summary><strong>Instrucciones</strong></summary>
-                <p>
-                    En esta página encontrarás una breve explicación sobre qué es el Grado Medio de Sistemas Microinformáticos y Redes (SMR), tareas realizadas en clase y qué es SEO y sus características. Lee atentamente el contenido para entender mejor esta formación profesional.
-                </p>
-            </details><br>
-            <details name="grupo">
-                <summary><strong>Qué es un Grado Medio de SMR</strong></summary>
-                <p>
-                    Un Grado Medio de Sistemas Microinformáticos y Redes (SMR) es una formación profesional que enseña a los estudiantes a instalar, configurar y mantener equipos informáticos, redes locales y servicios básicos de internet. Durante el curso, se aprenden conocimientos de hardware, sistemas operativos (como Windows y Linux), seguridad informática y atención al usuario.<br><br>
 
-                    Este ciclo tiene una duración de dos años, combinando clases teóricas con prácticas en empresas del sector, lo que ayuda a adquirir experiencia real. Al terminar, se obtiene el título de Técnico en Sistemas Microinformáticos y Redes, que permite trabajar en puestos como técnico de soporte informático, instalador de redes o mantenimiento de equipos.<br><br>
+    <main class="profile-card">
+        
+        <img src="https://via.placeholder.com/160" alt="Foto de perfil" class="profile-img">
+        
+        <h1>Tu Nombre Aquí</h1>
+        
+        <p class="bio">
+            Desarrollador Web Full Stack. <br>
+            Apasionado por crear experiencias digitales únicas.
+        </p>
 
-                    También sirve como base para seguir estudiando un Grado Superior de Informática, por lo que es una buena opción para quienes quieren empezar una carrera en el mundo de la tecnología y la informática.
-                </p>
-            </details><br>
-            <details name="grupo">
-                <summary><strong>Qué es SEO</strong></summary>
-                <p>
-                    SEO son las siglas de Search Engine Optimization (Optimización para Motores de Búsqueda), que se refiere al conjunto de técnicas para mejorar la visibilidad y el posicionamiento de un sitio web en los resultados orgánicos (no pagados) de los motores de búsqueda como Google. Su objetivo es que un sitio aparezca en las primeras posiciones para las búsquedas de los usuarios, atrayendo así más tráfico cualificado a largo plazo.
-                </p>
-            </details><br>
-            <details name="grupo">
-                <summary><strong>Características de SEO</strong></summary>
-                    <ul>
-                        <li>Investigación de palabras clave: Identificar los términos que los usuarios usan en sus búsquedas para crear contenido relevante.</li>
-                        <li>Creación de contenido: Generar contenido de alta calidad, útil y relevante que responda a las consultas de los usuarios.</li>
-                        <li>Optimización técnica: Mejorar la estructura y la velocidad del sitio web, haciéndolo compatible con dispositivos móviles (mobile-friendly) y fácil de rastrear por los motores de búsqueda.</li>
-                        <li>Construcción de enlaces (link building): Obtener enlaces de calidad de otros sitios web relevantes, ya que estos actúan como "votos de confianza".</li> 
-                    </ul>
-            </details>
-            <section>
-                <h2>Ubicación del IES Donoso Cortés</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.3389555602143!2d-5.86949272415194!3d38.961927642894196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd145b0335e1715b%3A0x485f02fe56f2d511!2sIES%20Donoso%20Cort%C3%A9s!5e0!3m2!1ses!2ses!4v1762337408787!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </section>
-        </main>
-    </div>
-    <footer class="footer">
-        <p>2025/26 2ºSMR</p>
-        <button class="button" type="button" onclick="document.getElementById('hora').innerHTML = Date();">Ver hora y fecha</button>
+        <div class="social-links">
+            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:tu@email.com" title="Enviar Correo"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="skills-container">
+            <h2>Tech Stack</h2>
+            <div class="skills-icons">
+                <i class="fab fa-html5" title="HTML5"></i>
+                <i class="fab fa-css3-alt" title="CSS3"></i>
+                <i class="fab fa-js-square" title="JavaScript"></i>
+                <i class="fab fa-react" title="React"></i>
+                <i class="fab fa-git-alt" title="Git"></i>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
         <p id="hora"></p>
     </footer>
 </body>
