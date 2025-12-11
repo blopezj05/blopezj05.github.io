@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- ESTILOS VISUALES (Diseño Oscuro) --- */
+        /* --- ESTILOS GENERALES --- */
         :root {
             --bg-color: #121212;
             --card-color: #1e1e1e;
             --text-color: #ffffff;
             --text-secondary: #aaaaaa;
-            --accent-color: #00d8ff; /* Azul cyan para resaltar */
+            --accent-color: #00d8ff;
+            --hover-bg: #2d2d2d;
         }
 
         body {
@@ -31,118 +32,174 @@
 
         .profile-card {
             background-color: var(--card-color);
-            padding: 3rem 2rem;
+            padding: 2rem;
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            max-width: 450px;
+            max-width: 500px; /* Un poco más ancho para que quepan los proyectos */
             width: 100%;
         }
 
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #333;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        h1 {
-            margin: 0.5rem 0;
-            font-size: 2.2rem;
-            font-weight: 700;
-        }
+        h1 { margin: 0.5rem 0; font-size: 2rem; font-weight: 700; }
+        .bio { color: var(--text-secondary); margin-bottom: 1.5rem; }
 
-        .bio {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        /* --- SECCIÓN DE PROYECTOS (ESTILO ERIK) --- */
+        .projects-section {
+            margin: 2rem 0;
+            text-align: left;
         }
-
-        /* --- REDES SOCIALES --- */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .social-links a {
-            color: var(--text-color);
-            font-size: 2rem;
-            text-decoration: none;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        /* --- SKILLS / HABILIDADES --- */
-        .skills-container {
-            border-top: 1px solid #333;
-            padding-top: 1.5rem;
-        }
-
-        .skills-container h2 {
-            font-size: 1rem;
+        
+        .projects-section h3 {
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
         }
 
-        .skills-icons {
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            gap: 10px;
+        }
+
+        .project-card {
+            background-color: var(--hover-bg);
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            background-color: #333;
+        }
+
+        .project-card i { color: var(--accent-color); }
+
+        /* --- BOTONES DE ENLACES (RAYUELA / W3C) --- */
+        .utility-links {
             display: flex;
             justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 2.5rem;
-            color: #555;
         }
 
-        .skills-icons i { transition: color 0.3s ease; }
+        .btn-utility {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-        /* Colores al pasar el ratón */
-        .skills-icons i.fa-html5:hover { color: #e34f26; }
-        .skills-icons i.fa-css3-alt:hover { color: #1572b6; }
-        .skills-icons i.fa-js-square:hover { color: #f7df1e; }
-        .skills-icons i.fa-react:hover { color: #61dafb; }
-        .skills-icons i.fa-git-alt:hover { color: #f05032; }
+        .btn-utility:hover { background-color: var(--accent-color); color: #000; }
+
+        /* --- MAPA --- */
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #333;
+        }
+
+        /* --- REDES SOCIALES Y SKILLS --- */
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0 1rem; }
+        .social-links a { color: var(--text-color); font-size: 1.8rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--accent-color); transform: translateY(-3px); }
+
+        .skills-icons { font-size: 2rem; color: #555; display: flex; justify-content: center; gap: 15px; margin-top: 1rem; }
+        .skills-icons i:hover { color: var(--accent-color); }
+
     </style>
 </head>
 <body>
 
     <main class="profile-card">
         
-        <img src="https://via.placeholder.com/160" alt="Borja Lopez Jimenez" class="profile-img">
+        <img src="https://via.placeholder.com/150" alt="Borja Lopez" class="profile-img">
         
         <h1>Borja Lopez Jimenez</h1>
-        
-        <p class="bio">
-            Desarrollador Web.<br>
-            Creando soluciones digitales.
-        </p>
+        <p class="bio">Alumno del IES Donoso Cortés <br> Desarrollador Web en formación.</p>
 
-        <div class="social-links">
-            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:tu@email.com" title="Contactar"><i class="fas fa-envelope"></i></a>
+        <div class="utility-links">
+            <a href="https://rayuela.educarex.es/modulo_acceso/" target="_blank" class="btn-utility">
+                <i class="fas fa-graduation-cap"></i> Rayuela
+            </a>
+            <a href="https://validator.w3.org/" target="_blank" class="btn-utility">
+                <i class="fas fa-check-double"></i> W3C Validator
+            </a>
         </div>
 
-        <div class="skills-container">
-            <h2>Tech Stack</h2>
-            <div class="skills-icons">
-                <i class="fab fa-html5" title="HTML5"></i>
-                <i class="fab fa-css3-alt" title="CSS3"></i>
-                <i class="fab fa-js-square" title="JavaScript"></i>
-                <i class="fab fa-react" title="React"></i>
-                <i class="fab fa-git-alt" title="Git"></i>
+        <div class="projects-section">
+            <h3>Mis Trabajos</h3>
+            <div class="projects-grid">
+                
+                <a href="proyecto1/index.html" class="project-card">
+                    <i class="fas fa-folder"></i> Proyecto 1
+                </a>
+
+                <a href="calculadora/index.html" class="project-card">
+                    <i class="fas fa-calculator"></i> Calculadora
+                </a>
+
+                <a href="formulario/index.html" class="project-card">
+                    <i class="fas fa-file-alt"></i> Formulario
+                </a>
+
+                <a href="landing/index.html" class="project-card">
+                    <i class="fas fa-desktop"></i> Landing Page
+                </a>
+
             </div>
+        </div>
+
+        <div class="map-container">
+            <iframe 
+                width="100%" 
+                height="200" 
+                frameborder="0" 
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                src="https://maps.google.com/maps?q=IES+Donoso+Cort%C3%A9s,Av.+Alonso+Mart%C3%ADn,+12,+06400+Don+Benito,+Badajoz&t=&z=15&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+        </div>
+
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:tu@email.com"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="skills-icons">
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-css3-alt"></i>
+            <i class="fab fa-js"></i>
         </div>
 
     </main>
