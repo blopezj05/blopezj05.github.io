@@ -1,70 +1,93 @@
+:root {
+    --bg-color: #121212;       /* Fondo oscuro */
+    --card-bg: #1e1e1e;        /* Fondo de la calculadora */
+    --text-color: #ffffff;     /* Texto blanco */
+    --accent-color: #00d8ff;   /* Tu color cyan característico */
+    --btn-bg: #2d2d2d;         /* Color de botones normales */
+    --btn-hover: #444444;      /* Color al pasar el ratón */
+}
+
 body {
-  background: linear-gradient(135deg, #4b6cb7, #182848);
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    margin: 0;
 }
 
-.calculator {
-  background-color: #1f2937;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  width: 300px;
+/* El contenedor principal de la calculadora */
+.calculadora, .container, #calculadora { 
+    /* He puesto varios nombres de clase por si acaso */
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    width: 300px;
+    border: 1px solid #333;
 }
 
-.calculator h1 {
-  text-align: center;
-  color: #fff;
-  margin-bottom: 15px;
+/* La pantalla donde salen los números */
+input[type="text"], .display, #display {
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    color: var(--accent-color); /* Números en cyan */
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: right;
+    padding-right: 10px;
+    box-sizing: border-box; /* Para que el padding no rompa el ancho */
+    font-family: 'Courier New', Courier, monospace;
 }
 
-#display {
-  width: 100%;
-  height: 50px;
-  border: none;
-  border-radius: 10px;
-  text-align: right;
-  padding: 10px;
-  font-size: 1.5em;
-  background-color: #111827;
-  color: #00ffb3;
-  margin-bottom: 15px;
+/* Estilos para los botones */
+button, input[type="button"] {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    transition: all 0.2s ease; /* Suaviza la animación */
+    box-shadow: 0 4px 0 #1a1a1a; /* Efecto 3D ligero */
 }
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+/* Efecto al pasar el ratón por encima */
+button:hover, input[type="button"]:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-2px); /* Se levanta un poco */
+    color: var(--accent-color);
 }
 
-.btn {
-  background-color: #374151;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.2em;
-  padding: 15px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+/* Efecto al hacer clic */
+button:active, input[type="button"]:active {
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
-.btn:hover {
-  background-color: #4b5563;
+/* Si tienes un botón de "Igual" (=), que destaque más */
+.equal, .igual, #equal {
+    background-color: var(--accent-color);
+    color: #000; /* Texto negro para contraste */
+    width: 135px; /* Un poco más ancho si tu HTML lo permite */
 }
 
-.equal {
-  background-color: #10b981;
-  grid-row: span 2;
+.equal:hover, .igual:hover, #equal:hover {
+    background-color: #00bcd4;
+    color: white;
 }
 
-.equal:hover {
-  background-color: #059669;
+/* Botón de borrar (C o AC) en rojo suave */
+.clear, .borrar, #clear {
+    background-color: #ff4757;
+    color: white;
 }
-
-.zero {
-  grid-column: span 2;
-}
+.clear:hover { background-color: #ff6b81; }
