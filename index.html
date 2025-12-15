@@ -1,3 +1,13 @@
+¡Entendido! Es un arreglo muy sencillo en el CSS.
+
+El problema era que la rejilla (grid) estaba configurada para tener solo dos columnas (1fr 1fr), por lo que el tercer elemento (Formulario) se veía obligado a bajar a la siguiente fila.
+
+He cambiado esa línea por grid-template-columns: repeat(3, 1fr);, que significa "haz 3 columnas de igual tamaño". Así quedan los tres en línea recta.
+
+Aquí tienes el código completo y definitivo de tu index.html principal:
+
+HTML
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,7 +46,7 @@
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            max-width: 500px;
+            max-width: 600px; /* Un poco más ancho para que quepan bien los 3 botones */
             width: 100%;
         }
 
@@ -70,7 +80,8 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            /* CAMBIO AQUÍ: Ahora son 3 columnas iguales para que quepan en una fila */
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
 
@@ -84,8 +95,10 @@
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center; /* Centrado para que se vean mejor en botones más pequeños */
+            gap: 8px;
             border: 1px solid transparent;
+            font-size: 0.9rem; /* Un poco más pequeño para asegurar que cabe */
         }
 
         .project-card:hover {
@@ -135,6 +148,11 @@
 
         .skills-icons { font-size: 2rem; color: #555; display: flex; justify-content: center; gap: 15px; margin-top: 1rem; }
         .skills-icons i:hover { color: var(--accent-color); }
+
+        /* Ajuste para móviles: si la pantalla es muy pequeña, vuelven a 1 columna */
+        @media (max-width: 500px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
 
     </style>
 </head>
@@ -201,5 +219,7 @@
 
     </main>
 
+</body>
+</html>
 </body>
 </html>
